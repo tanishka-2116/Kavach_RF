@@ -1,114 +1,188 @@
 # Antenna Architecture
 
-## Layered Conformal Structure
+## KAVACH-RF
 
-The proposed antenna uses a layered structure designed to follow the helmet curvature.
+The proposed KAVACH-RF antenna uses a **low-profile conformal structure** designed for integration with the helmet surface.
 
-![Layer Exploded View](../assets/concept/layer-exploded-view.jpg)
+The architecture is being investigated for the two operating regions currently defined in the project:
 
----
-
-## Layer Stack
-
-### 1. Protective Outer Layer
-
-Provides physical protection to the antenna structure.
-
-The layer is intended to protect the conductive elements from environmental exposure and mechanical abrasion.
+* **UHF — 446 MHz target**
+* **L-band — 1.575 GHz target**
 
 ---
 
-### 2. Conformal Antenna Layer
+## 1. Proposed Antenna Structure
 
-Contains the RF radiating structure.
+![Layer Exploded View](images/layer-exploded-view.jpg)
 
-The conductor geometry is designed to follow the helmet surface.
+The proposed structure consists of multiple functional layers arranged between the outer protective surface and the helmet shell.
 
-The current concept investigates a microstrip / patch-based structure.
-
----
-
-### 3. Dielectric Substrate
-
-The dielectric provides mechanical support and establishes the electromagnetic environment required by the radiator.
-
-The final substrate selection will depend on:
-
-* Relative permittivity
-* Loss tangent
-* Thickness
-* Flexibility
-* Mechanical compatibility
-* Availability
+The layered approach allows the electromagnetic and mechanical properties of the antenna system to be considered together.
 
 ---
 
-### 4. EBG / AMC Layer
+## 2. Conformal Antenna Surface
 
-The design investigates an electromagnetic band-gap / artificial magnetic conductor structure beneath the radiator.
+![Conformal Antenna Surface](images/antenna-surface.jpg)
 
-Its electromagnetic effect will be evaluated through simulation and measurement.
+The radiating structure is intended to follow the available helmet geometry rather than forming a conventional externally protruding antenna.
 
----
-
-### 5. Bonding Layer
-
-Provides mechanical attachment between the antenna structure and helmet surface.
-
-Its thickness and dielectric properties can influence RF performance and therefore should be considered in the electromagnetic model.
+The final radiator geometry will be determined through electromagnetic simulation and prototype validation.
 
 ---
 
-### 6. Helmet Shell
-
-The helmet acts as the mechanical integration platform.
-
-Its material and geometry can affect the antenna's electromagnetic behavior and therefore should be included in the integrated simulation where appropriate.
-
----
-
-## Physical Arrangement
+## 3. Layer Stack
 
 ```text
               OUTSIDE
                  ↓
-        ┌─────────────────┐
-        │ Protective Layer│
-        ├─────────────────┤
-        │    Radiator     │
-        ├─────────────────┤
-        │    Substrate    │
-        ├─────────────────┤
-        │    EBG / AMC    │
-        ├─────────────────┤
-        │ Bonding Layer   │
-        ├─────────────────┤
-        │  Helmet Shell   │
-        └─────────────────┘
+        ┌─────────────────────┐
+        │ Protective / Radome │
+        ├─────────────────────┤
+        │ Conformal Radiator  │
+        ├─────────────────────┤
+        │ Dielectric Substrate│
+        ├─────────────────────┤
+        │ EBG / AMC Structure │
+        ├─────────────────────┤
+        │ Bonding Layer       │
+        ├─────────────────────┤
+        │ Helmet Shell        │
+        └─────────────────────┘
                  ↓
-               USER
+                USER
+```
+
+### Functional layers
+
+**Protective / Radome Layer**
+Provides physical protection to the antenna structure.
+
+**Conformal Radiator**
+Contains the conductive RF radiating structure.
+
+**Dielectric Substrate**
+Provides mechanical support and forms part of the electromagnetic structure.
+
+**EBG / AMC Structure**
+The proposed design investigates an electromagnetic surface beneath the radiator. Its effect on antenna performance will be evaluated through simulation and measurement.
+
+**Bonding Layer**
+Provides mechanical attachment between the antenna structure and helmet surface. Its thickness and material properties can influence RF behaviour.
+
+**Helmet Shell**
+Provides the mechanical integration platform. Its geometry and material properties can influence the antenna's electromagnetic behaviour.
+
+---
+
+## 4. Antenna Cross-Section
+
+![Antenna Cross-Section](images/antenna-cross-section.jpg)
+
+The cross-section represents the relationship between the antenna layers and the helmet structure.
+
+The integrated design needs to consider both:
+
+* **RF characteristics**
+* **Mechanical integration**
+
+---
+
+## 5. Design Considerations
+
+The antenna architecture is being evaluated with respect to:
+
+* Helmet curvature
+* Available mounting area
+* Antenna-to-helmet interaction
+* Human-body proximity
+* RF feed routing
+* Mechanical attachment
+* Impedance matching
+* Radiation characteristics
+* Material properties
+
+---
+
+## 6. RF Integration
+
+The antenna connects to the communication system through an RF feed and matching interface.
+
+```text
+Conformal Radiator
+        │
+        ▼
+   RF Feed / Port
+        │
+        ▼
+ Matching Network
+        │
+        ▼
+Communication Radio
+```
+
+The target system impedance is:
+
+**50 Ω**
+
+---
+
+## 7. Current Design Approach
+
+Separate electromagnetic models are currently being investigated for the UHF and L-band operating regions.
+
+| Band   |    Target | Current Simulation | Current Status        |
+| ------ | --------: | -----------------: | --------------------- |
+| UHF    |   446 MHz |         522.67 MHz | Frequency retuning    |
+| L-band | 1.575 GHz |         1.5755 GHz | Matching optimization |
+
+These values represent the **current simulation stage** and are not final experimental measurements.
+
+---
+
+## 8. Design Principle
+
+The antenna is treated as an **integrated helmet–antenna system** rather than as an isolated radiator.
+
+Therefore, the development considers:
+
+```text
+Antenna Geometry
+       +
+Material Stack
+       +
+Helmet Curvature
+       +
+Feed Configuration
+       +
+Human-Body Proximity
+       ↓
+Integrated RF Performance
 ```
 
 ---
 
-## Design Principle
+## 9. Development Status
 
-The antenna is treated as an **integrated RF structure**, rather than simply attaching a conventional antenna to the helmet.
+The current architecture represents the **proposed design direction**.
 
-This means the following must be considered together:
+The following parameters remain subject to optimization:
 
-* Antenna geometry
-* Helmet curvature
-* Material stack
+* Final radiator geometry
+* Substrate selection
+* Layer thickness
+* EBG / AMC geometry
 * Feed location
-* Human-body proximity
-* Electromagnetic coupling
-* Mechanical integration
+* Matching network
+* Helmet integration
+
+The final design will be established through **simulation followed by physical RF validation**.
 
 ---
 
-## Current Status
+## Related Documentation
 
-The architecture shown here represents the **proposed design direction**.
-
-The final layer dimensions, substrate selection, radiator geometry, EBG/AMC geometry and mounting method remain subject to simulation optimization and prototype validation.
+* [`Design Overview`](design-overview.md)
+* [`Frequency Plan`](frequency-plan.md)
+* [`Materials`](materials.md)
+* [`Simulation`](../04_Simulation/)
