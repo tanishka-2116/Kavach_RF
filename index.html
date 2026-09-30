@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KAVACH-RF | Helmet Mounted Conformal Antenna</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0f14;
+      color: #e8edf2;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Navigation */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 15, 20, 0.95);
+      border-bottom: 1px solid #26313d;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: #aeb8c3;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* Hero */
+
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 110px 24px 90px;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #3a4652;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #aeb8c3;
+      margin-bottom: 22px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1;
+      margin-bottom: 22px;
+      letter-spacing: -3px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #aeb8c3;
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 12px 20px;
+      border: 1px solid #3a4652;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: #18212b;
+      border-color: #647384;
+    }
+
+    .button.primary {
+      background: #e8edf2;
+      color: #0b0f14;
+      border-color: #e8edf2;
+    }
+
+    /* Sections */
+
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #7f8b97;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      color: #aeb8c3;
+      margin-bottom: 35px;
+    }
+
+    /* Cards */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid #26313d;
+      border-radius: 12px;
+      padding: 25px;
+      background: #10161d;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .card p {
+      color: #9da8b3;
+      font-size: 14px;
+    }
+
+    /* Frequency */
+
+    .frequency-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .frequency-card {
+      border: 1px solid #26313d;
+      border-radius: 12px;
+      padding: 30px;
+      background: #10161d;
+    }
+
+    .frequency-card .band {
+      font-size: 13px;
+      color: #7f8b97;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .frequency-card .value {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+
+    .frequency-card p {
+      color: #9da8b3;
+      font-size: 14px;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid #26313d;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 35px 24px;
+      color: #7f8b97;
+      font-size: 13px;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .grid,
+      .frequency-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+
+  <nav>
+    <div class="nav-container">
+
+      <div class="logo">
+        KAVACH-RF
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="solution.html">Solution</a>
+        <a href="antenna.html">Antenna</a>
+        <a href="simulation.html">Simulation</a>
+        <a href="prototype.html">Prototype</a>
+        <a href="references.html">References</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- Hero -->
+
+  <main>
+
+    <div class="hero">
+
+      <div class="tag">
+        SIH PROJECT • RF ANTENNA SYSTEM
+      </div>
+
+      <h1>
+        KAVACH-RF
+      </h1>
+
+      <p>
+        Helmet-mounted conformal antenna development for tactical
+        communication environments, combining electromagnetic simulation,
+        conformal integration and planned physical validation.
+      </p>
+
+      <div class="buttons">
+
+        <a class="button primary" href="simulation.html">
+          View Simulation →
+        </a>
+
+        <a class="button" href="solution.html">
+          Explore Solution
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- Project Overview -->
+
+    <section>
+
+      <div class="section-label">
+        01 / Overview
+      </div>
+
+      <h2>
+        What are we building?
+      </h2>
+
+      <p class="section-intro">
+        KAVACH-RF investigates a low-profile conformal antenna architecture
+        designed for integration with a helmet surface. The project combines
+        antenna design, electromagnetic simulation and a planned prototype
+        validation workflow.
+      </p>
+
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Conformal Integration</h3>
+          <p>
+            Investigation of an antenna structure that follows the available
+            helmet geometry instead of relying on a conventional protruding
+            antenna.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>RF Simulation</h3>
+          <p>
+            CST Studio Suite is being used to investigate resonance,
+            reflection coefficient and electromagnetic behaviour.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Physical Validation</h3>
+          <p>
+            A physical prototype and RF measurement workflow are planned
+            after the antenna geometry is optimized.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Frequency -->
+
+    <section>
+
+      <div class="section-label">
+        02 / Current Simulation
+      </div>
+
+      <h2>
+        Two frequency configurations
+      </h2>
+
+      <p class="section-intro">
+        The current project development investigates two frequency regions.
+        The values below represent the present project simulation stage.
+      </p>
+
+
+      <div class="frequency-grid">
+
+        <div class="frequency-card">
+
+          <div class="band">
+            UHF
+          </div>
+
+          <div class="value">
+            446 MHz
+          </div>
+
+          <p>
+            Project target frequency.
+            Current CST simulation shows a resonance at approximately
+            522.67 MHz with S11 around −10.38 dB.
+          </p>
+
+          <br>
+
+          <a class="button" href="simulation.html">
+            UHF Simulation →
+          </a>
+
+        </div>
+
+
+        <div class="frequency-card">
+
+          <div class="band">
+            L-BAND
+          </div>
+
+          <div class="value">
+            1.575 GHz
+          </div>
+
+          <p>
+            Project target frequency.
+            Current simulation shows a resonance near 1.5755 GHz.
+          </p>
+
+          <br>
+
+          <a class="button" href="simulation.html">
+            L-band Simulation →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Development -->
+
+    <section>
+
+      <div class="section-label">
+        03 / Development
+      </div>
+
+      <h2>
+        From simulation to prototype
+      </h2>
+
+      <p class="section-intro">
+        The project follows a staged engineering workflow. Simulation results
+        are treated separately from future physical measurements.
+      </p>
+
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>01 — Design</h3>
+          <p>
+            Define antenna architecture, materials, geometry and frequency
+            targets.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>02 — Simulate</h3>
+          <p>
+            Evaluate electromagnetic behaviour using CST and optimize the
+            antenna geometry.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>03 — Validate</h3>
+          <p>
+            Fabricate the optimized design and compare physical RF
+            measurements with simulation.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <strong>KAVACH-RF</strong><br><br>
+
+      Helmet-mounted conformal antenna development project.
+
+      <br><br>
+
+      <a href="../README.md">
+        View project repository →
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
