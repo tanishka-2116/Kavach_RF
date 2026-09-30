@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KAVACH-RF | Antenna Design</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                     Roboto, Helvetica, Arial, sans-serif;
+        background: #ffffff;
+        color: #17202a;
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 1120px;
+        margin: auto;
+        padding: 55px 28px 80px;
+    }
+
+    h1 {
+        font-size: 52px;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        color: #111827;
+    }
+
+    h2 {
+        font-size: 30px;
+        margin-bottom: 18px;
+        color: #111827;
+    }
+
+    h3 {
+        font-size: 21px;
+        margin-bottom: 10px;
+        color: #111827;
+    }
+
+    p {
+        color: #4b5563;
+        margin-bottom: 15px;
+    }
+
+    .intro {
+        max-width: 900px;
+        font-size: 17px;
+        margin-bottom: 42px;
+    }
+
+    .section {
+        margin-top: 55px;
+    }
+
+    .card {
+        background: #f8fafc;
+        border: 1px solid #dbe3ea;
+        border-radius: 16px;
+        padding: 28px;
+        margin-bottom: 24px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+    .three-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .image-card {
+        background: #ffffff;
+        border: 1px solid #dbe3ea;
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+    .image-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: #f1f5f9;
+    }
+
+    .image-caption {
+        padding: 15px 17px;
+        font-size: 14px;
+        color: #59636e;
+    }
+
+    .label {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 12px;
+        color: #64748b;
+        margin-bottom: 8px;
+    }
+
+    .value {
+        font-size: 25px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .spec-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    .spec-table th,
+    .spec-table td {
+        text-align: left;
+        padding: 14px 12px;
+        border-bottom: 1px solid #dbe3ea;
+    }
+
+    .spec-table th {
+        color: #111827;
+        background: #f1f5f9;
+    }
+
+    .note {
+        border-left: 4px solid #64748b;
+        background: #f8fafc;
+        padding: 18px 20px;
+        margin-top: 20px;
+        color: #4b5563;
+    }
+
+    .status {
+        display: inline-block;
+        padding: 6px 11px;
+        border-radius: 20px;
+        background: #eef2f7;
+        color: #334155;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    ul {
+        margin: 12px 0 0 22px;
+        color: #4b5563;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    .footer {
+        margin-top: 70px;
+        padding-top: 25px;
+        border-top: 1px solid #dbe3ea;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+    a {
+        color: #2563eb;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+        h1 {
+            font-size: 40px;
+        }
+
+        .grid,
+        .three-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .container {
+            padding: 35px 18px 60px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <h1>Antenna Design</h1>
+
+    <p class="intro">
+        This section documents the proposed antenna architecture,
+        operating-frequency plan, physical design considerations,
+        materials and dimensional parameters for the KAVACH-RF
+        helmet-mounted conformal antenna concept.
+    </p>
+
+
+    <!-- DESIGN OVERVIEW -->
+    <section class="section">
+
+        <div class="label">01 — Design Overview</div>
+
+        <h2>KAVACH-RF Antenna Architecture</h2>
+
+        <div class="card">
+
+            <p>
+                KAVACH-RF investigates a low-profile antenna architecture
+                intended for integration with a tactical helmet while
+                maintaining the required RF interface and minimizing
+                external antenna protrusion.
+            </p>
+
+            <p>
+                The design work currently considers two operating
+                configurations: UHF and L-band.
+            </p>
+
+            <div class="note">
+                <strong>Development status:</strong>
+                The antenna is currently at the design and simulation
+                stage. Physical prototype fabrication and experimental
+                validation are planned as subsequent steps.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ARCHITECTURE IMAGE -->
+    <section class="section">
+
+        <div class="label">02 — Antenna Architecture</div>
+
+        <h2>Proposed Physical Stack</h2>
+
+        <div class="card">
+
+            <p>
+                The proposed antenna integration consists of multiple
+                layers intended to support conformal mounting and RF
+                performance.
+            </p>
+
+            <table class="spec-table">
+
+                <tr>
+                    <th>Layer</th>
+                    <th>Purpose</th>
+                </tr>
+
+                <tr>
+                    <td>Protective / Radome Layer</td>
+                    <td>
+                        Provides physical protection while allowing
+                        electromagnetic transmission.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Conformal Antenna Layer</td>
+                    <td>
+                        Primary radiating structure.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>EBG / AMC Layer</td>
+                    <td>
+                        Investigated for electromagnetic isolation
+                        and radiation-control purposes.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Flexible Dielectric</td>
+                    <td>
+                        Provides electrical separation and mechanical
+                        flexibility.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Helmet Shell</td>
+                    <td>
+                        Mechanical mounting surface for the integrated
+                        antenna structure.
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- FREQUENCY -->
+    <section class="section">
+
+        <div class="label">03 — Frequency Plan</div>
+
+        <h2>Operating Configurations</h2>
+
+        <div class="three-grid">
+
+            <div class="card">
+                <div class="label">UHF</div>
+                <div class="value">446 MHz</div>
+                <p>
+                    Initial project target used for the UHF
+                    communication configuration.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="label">L-band</div>
+                <div class="value">1.575 GHz</div>
+                <p>
+                    Initial project target used for the L-band
+                    configuration.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="label">Architecture</div>
+                <div class="value">Dual-band</div>
+                <p>
+                    Separate frequency configurations are being
+                    investigated within the overall KAVACH-RF concept.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- UHF DESIGN -->
+    <section class="section">
+
+        <div class="label">04 — UHF Configuration</div>
+
+        <h2>UHF Antenna Design</h2>
+
+        <div class="card">
+
+            <p>
+                The UHF configuration is being investigated for the
+                tactical-radio communication portion of the system.
+            </p>
+
+            <table class="spec-table">
+
+                <tr>
+                    <th>Parameter</th>
+                    <th>Current Design Value</th>
+                </tr>
+
+                <tr>
+                    <td>Target Frequency</td>
+                    <td>446 MHz</td>
+                </tr>
+
+                <tr>
+                    <td>Configuration</td>
+                    <td>Conformal antenna concept</td>
+                </tr>
+
+                <tr>
+                    <td>Simulation Tool</td>
+                    <td>CST Studio Suite</td>
+                </tr>
+
+                <tr>
+                    <td>Current Stage</td>
+                    <td>
+                        Simulation / frequency optimization
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="grid">
+
+            <div class="image-card">
+
+                <img
+                    src="../03_Antenna_Design/images/uhf-antenna.jpg"
+                    alt="UHF antenna design"
+                    onerror="this.style.display='none'"
+                >
+
+                <div class="image-caption">
+                    UHF antenna design / geometry reference.
+                </div>
+
+            </div>
+
+            <div class="image-card">
+
+                <img
+                    src="../03_Antenna_Design/images/uhf-design.jpg"
+                    alt="UHF antenna design geometry"
+                    onerror="this.style.display='none'"
+                >
+
+                <div class="image-caption">
+                    UHF geometry and design reference.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- L BAND DESIGN -->
+    <section class="section">
+
+        <div class="label">05 — L-band Configuration</div>
+
+        <h2>L-band Antenna Design</h2>
+
+        <div class="card">
+
+            <p>
+                The L-band configuration is being investigated as part
+                of the project's higher-frequency communication
+                configuration.
+            </p>
+
+            <table class="spec-table">
+
+                <tr>
+                    <th>Parameter</th>
+                    <th>Current Design Value</th>
+                </tr>
+
+                <tr>
+                    <td>Target Frequency</td>
+                    <td>1.575 GHz</td>
+                </tr>
+
+                <tr>
+                    <td>Configuration</td>
+                    <td>Conformal antenna concept</td>
+                </tr>
+
+                <tr>
+                    <td>Simulation Tool</td>
+                    <td>CST Studio Suite</td>
+                </tr>
+
+                <tr>
+                    <td>Current Stage</td>
+                    <td>
+                        Simulation / impedance optimization
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- MATERIALS -->
+    <section class="section">
+
+        <div class="label">06 — Materials</div>
+
+        <h2>Material Considerations</h2>
+
+        <div class="card">
+
+            <p>
+                Material selection is being considered with respect
+                to electrical performance, mechanical flexibility,
+                fabrication practicality and helmet integration.
+            </p>
+
+            <ul>
+                <li>Conductive radiator / copper structure</li>
+                <li>Flexible dielectric substrate</li>
+                <li>Protective or radome layer</li>
+                <li>Helmet shell as the integration surface</li>
+                <li>RF feed and connector interface</li>
+            </ul>
+
+            <div class="note">
+                Final material dimensions and dielectric parameters
+                should be confirmed against the selected fabrication
+                material and its manufacturer datasheet before
+                prototype fabrication.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DIMENSIONS -->
+    <section class="section">
+
+        <div class="label">07 — Dimensions & Geometry</div>
+
+        <h2>Design Parameters</h2>
+
+        <div class="card">
+
+            <p>
+                Antenna dimensions are treated as design parameters
+                that require electromagnetic optimization rather than
+                being considered final fabrication dimensions at this
+                stage.
+            </p>
+
+            <table class="spec-table">
+
+                <tr>
+                    <th>Parameter</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>Radiator dimensions</td>
+                    <td>Under optimization</td>
+                </tr>
+
+                <tr>
+                    <td>Feed position</td>
+                    <td>Requires impedance optimization</td>
+                </tr>
+
+                <tr>
+                    <td>Substrate thickness</td>
+                    <td>To be finalized with selected material</td>
+                </tr>
+
+                <tr>
+                    <td>Helmet curvature</td>
+                    <td>Requires physical integration study</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- DESIGN WORKFLOW -->
+    <section class="section">
+
+        <div class="label">08 — Development Workflow</div>
+
+        <h2>From Design to Prototype</h2>
+
+        <div class="card">
+
+            <table class="spec-table">
+
+                <tr>
+                    <th>Stage</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>Problem & requirements</td>
+                    <td><span class="status">Completed</span></td>
+                </tr>
+
+                <tr>
+                    <td>Antenna architecture</td>
+                    <td><span class="status">In development</span></td>
+                </tr>
+
+                <tr>
+                    <td>CST simulation</td>
+                    <td><span class="status">Completed / optimizing</span></td>
+                </tr>
+
+                <tr>
+                    <td>Frequency tuning</td>
+                    <td><span class="status">In progress</span></td>
+                </tr>
+
+                <tr>
+                    <td>Physical fabrication</td>
+                    <td><span class="status">Planned</span></td>
+                </tr>
+
+                <tr>
+                    <td>VNA measurement</td>
+                    <td><span class="status">Planned</span></td>
+                </tr>
+
+                <tr>
+                    <td>Helmet integration validation</td>
+                    <td><span class="status">Planned</span></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMPORTANT NOTE -->
+    <section class="section">
+
+        <div class="label">Engineering Note</div>
+
+        <h2>Current Design Status</h2>
+
+        <div class="card">
+
+            <p>
+                The information presented on this page represents the
+                current design and simulation development of KAVACH-RF.
+            </p>
+
+            <p>
+                The antenna should not be considered experimentally
+                validated until a physical prototype is fabricated and
+                characterized using appropriate RF measurement
+                equipment.
+            </p>
+
+            <div class="note">
+                <strong>Important:</strong>
+                Simulation results and design targets are not equivalent
+                to measured prototype performance.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+        <strong>KAVACH-RF</strong><br>
+
+        Helmet-Mounted Conformal Antenna for Tactical Communications<br>
+
+        SIH26185 · Antenna Design Documentation
+
+        <br><br>
+
+        <a href="https://github.com/tanishka-2116/Kavach_RF">
+            View complete project repository →
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
